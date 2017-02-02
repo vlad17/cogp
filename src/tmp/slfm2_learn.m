@@ -26,7 +26,7 @@ for i=1:P
 end
 ymean = mean(ytmp,2);
 for j=1:Q
-  par.g{j} = init_params(x,ymean,M,nhyper_g,initz(x,M,cf.initz));
+  par.g{j} = init_params(par.g{j}, x,ymean,M,nhyper_g,initz(x,M,cf.initz));
   par.g{j}.m = zeros(size(par.g{j}.m));
   if strcmp(cf.initz,'espaced')
     par.g{j}.m = par.g{j}.m + 1e-4*randn(M,1); % small pertubance to break symmetry
